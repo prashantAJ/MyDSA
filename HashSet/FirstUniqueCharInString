@@ -1,0 +1,17 @@
+class Solution {
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> hm=new LinkedHashMap(); 
+        Set<Character> set=new HashSet();
+        for(int i=0;i<s.length();i++){
+            if(set.contains(s.charAt(i))){
+                if(hm.containsKey(s.charAt(i)))
+                    hm.remove(s.charAt(i));
+            }
+                else{
+                    set.add(s.charAt(i));
+                    hm.put(s.charAt(i),i);
+                }
+        }
+        return hm.size()==0 ? -1 : hm.entrySet().iterator().next().getValue();
+    }
+}
