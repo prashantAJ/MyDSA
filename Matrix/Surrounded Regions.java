@@ -14,19 +14,12 @@ class Solution {
             if(board[n-1][i]=='O')
                 makeIsland(n-1, i, board, '+');
         }
-        
-        for(int i=1;i<n-1;i++){
-            for(int j=1;j<m-1;j++){
-                if(board[i][j]=='O'){
-                    makeIsland(i, j, board, 'X');
-                }
-                    
-            }
-        }
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(board[i][j]=='+')
                     board[i][j]='O';
+                else
+                    board[i][j]='X';
             }
         }
     }
